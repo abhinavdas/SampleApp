@@ -43,8 +43,8 @@ controllerURL() {
 }
 
 showUsage() {
-  echo "Usage: docker exec -it rest install-appdynamics"
-  echo "OR:    docker exec -it rest install-appdynamics <controller-url> <controller-port> <account-name> <access-key>"
+  echo "Usage: docker exec -it web install-appdynamics"
+  echo "OR:    docker exec -it web install-appdynamics <controller-url> <controller-port> <account-name> <access-key>"
   echo "Commandline properties override environment variables from docker-compose.yml"
 }
 
