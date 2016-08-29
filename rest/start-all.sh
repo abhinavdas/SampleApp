@@ -6,9 +6,13 @@ if [ ! -s /env.sh ]; then
 fi
 
 start-machine-agent
-echo 
+echo "*****************************************************"
 start-db-agent
-echo
+echo "*****************************************************"
 start-tomcat
+echo "*****************************************************"
+
+echo "The Sample App REST services are running at: http://192.168.99.100:8080/SampleApp/products"
+echo "The Sample App web application is running at: http://192.168.99.100:3000/#"
 
 exit 0

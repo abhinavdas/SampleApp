@@ -154,6 +154,7 @@ trap cleanup EXIT
 checkEnv
 
 if [ $# -eq 0 ]; then
+echo "*****************************************************"
   echo "Using Controller properties from docker-compose.yml"
   APPD_CONTROLLER=${CONTROLLER_URL}
   APPD_PORT=${CONTROLLER_PORT}
@@ -163,6 +164,7 @@ elif [ $# -ne 4 ]; then
   showUsage
   exit 1
 else
+echo "*****************************************************"
   echo "Using Controller properties:"
   APPD_CONTROLLER=$1
   APPD_PORT=$2
@@ -175,9 +177,16 @@ echo " Controller Port = ${APPD_PORT}"
 echo " Account Name = ${APPD_ACCOUNT_NAME}"
 echo " Access Key = ${APPD_ACCESS_KEY}"
 
-downloadInstallers; echo
+echo "*****************************************************"
+downloadInstallers
+echo "*****************************************************"
 checkSSL
+echo "*****************************************************"
 installAppServerAgent
+echo "*****************************************************"
 installDatabaseAgent
+echo "*****************************************************"
 installMachineAgent
-setupAppdEnv; echo
+echo "*****************************************************"
+setupAppdEnv
+echo "*****************************************************"
