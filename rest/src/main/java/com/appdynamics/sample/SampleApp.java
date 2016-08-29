@@ -16,7 +16,6 @@
 
 package com.appdynamics.sample;
 
-import com.appdynamics.sample.resource.Controller;
 import com.appdynamics.sample.resource.ProductResource;
 import com.appdynamics.sample.resource.RESTExceptions;
 import com.google.inject.Guice;
@@ -41,7 +40,6 @@ public class SampleApp extends GuiceServletContextListener {
                     protected void configureServlets() {
                         bind(ProductResource.class);
                         bind(RESTExceptions.class);
-                        bind(Controller.class);
                         
                         filter("/*").through(PersistFilter.class);
                         serve("/*").with(GuiceContainer.class);

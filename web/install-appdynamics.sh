@@ -1,5 +1,28 @@
 #! /bin/bash
 
+checkEnv() {
+  if [ -z ${CONTROLLER_URL} ]; then
+    echo "Error: CONTROLLER_URL must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${CONTROLLER_PORT} ]; then
+    echo "Error: CONTROLLER_PORT must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${CONTROLLER_ACCOUNT_NAME} ]; then
+    echo "Error: CONTROLLER_ACCOUNT_NAME must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${CONTROLLER_ACCESS_KEY} ]; then
+    echo "Error: CONTROLLER_ACCESS_KEY must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${APP_ID} ]; then
+    echo "Error: APP_ID must be set in docker-compose.yml"
+    exit
+  fi
+}
+
 APPD_SSL="false"
 APPD_APP_NAME="SampleApp"
 APPD_TIER_NAME="WebServices"
@@ -39,7 +62,8 @@ controllerURL() {
   echo "angular.module('constants', [])
 	.constant('CONTROLLER_URL', '${APPD_CONTROLLER}')
         .constant('CONTROLLER_PORT', '${APPD_PORT}')
-        .constant('CONTROLLER_SSL', '${APPD_SSL}');" > /SampleApp/src/public/js/appd-controller.js
+        .constant('CONTROLLER_SSL', '${APPD_SSL}')
+        .constant('APP_ID', '${APP_ID}');" > /SampleApp/src/public/js/appd-controller.js
 }
 
 showUsage() {
@@ -70,6 +94,7 @@ echo " Controller Port = ${APPD_PORT}"
 echo " Account Name = ${APPD_ACCOUNT_NAME}"
 echo " Access Key = ${APPD_ACCESS_KEY}"
 
+checkEnv
 installAppd
 checkSSL
 env_config

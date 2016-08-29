@@ -22,6 +22,6 @@ RUN chmod +x /usr/local/bin/install-appdynamics
 RUN chmod +x /usr/local/bin/start-all
 
 # Tail syslog to keep container running
-CMD tail -f /var/log/messages
+CMD install-appdynamics && start-all && tail -f /var/log/messages
 
 EXPOSE 3000

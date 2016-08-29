@@ -10,10 +10,9 @@ services:
       - CONTROLLER_PORT=
       - CONTROLLER_ACCOUNT_NAME=
       - CONTROLLER_ACCESS_KEY=
-      - CONTROLLER_USERNAME=
-      - CONTROLLER_PASSWORD=
       - PORTAL_USERNAME=
       - PORTAL_PASSWORD=
+      - AGENT_VERSION=
     links:
       - db
     ports: 
@@ -36,6 +35,7 @@ services:
       - CONTROLLER_PORT=
       - CONTROLLER_ACCOUNT_NAME=
       - CONTROLLER_ACCESS_KEY=
+      - SAMPLE_APP_ID=
     links:
       - rest
       - db

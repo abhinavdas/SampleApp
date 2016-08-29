@@ -1,7 +1,30 @@
 #! /bin/bash
 
+checkEnv() {
+  if [ -z ${CONTROLLER_URL} ]; then
+    echo "Error: CONTROLLER_URL must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${CONTROLLER_PORT} ]; then
+    echo "Error: CONTROLLER_PORT must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${CONTROLLER_ACCOUNT_NAME} ]; then
+    echo "Error: CONTROLLER_ACCOUNT_NAME must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${CONTROLLER_ACCESS_KEY} ]; then
+    echo "Error: CONTROLLER_ACCESS_KEY must be set in docker-compose.yml"
+    exit
+  fi
+  if [ -z ${AGENT_VERSION} ]; then
+    echo "Error: AGENT_VERSION must be set in docker-compose.yml"
+    exit
+  fi
+}
+
 APPD_LOGIN_URL=https://login.appdynamics.com/sso/login/
-VERSION=4.2.2.2
+VERSION=${AGENT_VERSION}
 APPD_TEMP_DIR=.appd
 
 # Portal Download 
@@ -127,6 +150,8 @@ cleanup() {
   rm -rf .appd
 } 
 trap cleanup EXIT
+
+checkEnv
 
 if [ $# -eq 0 ]; then
   echo "Using Controller properties from docker-compose.yml"
