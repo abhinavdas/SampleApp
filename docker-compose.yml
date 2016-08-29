@@ -35,7 +35,7 @@ services:
       - CONTROLLER_PORT=
       - CONTROLLER_ACCOUNT_NAME=
       - CONTROLLER_ACCESS_KEY=
-      - SAMPLE_APP_ID=
+      - APP_ID=
     links:
       - rest
       - db
