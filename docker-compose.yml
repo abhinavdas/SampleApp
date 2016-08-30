@@ -2,7 +2,9 @@ version: '2'
 
 services:
   rest:
-    build: ./rest
+    #Uncomment line below if you want to build from Github source code
+    #Otherwise it will pull pre-built images from Docker Hub
+    #build: ./rest
     container_name: rest
     image: appdynamics/sample-app-rest
     environment:
@@ -27,7 +29,9 @@ services:
       - "3306:3306"
 
   web:
-    build: ./web
+    #Uncomment line below if you want to build from Github source code
+    #Otherwise it will pull pre-built images from Docker Hub
+    #build: ./web
     container_name: web
     image: appdynamics/sample-app-web
     environment:
