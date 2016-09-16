@@ -1,24 +1,33 @@
-Self-Service Sample Application with Java REST server, MySQL database and Node.js frontend.
+Docker based Sample Application with Java REST server, MySQL database and Node.js frontend.
 
 ### Project Setup
+1. Copy [docker-compose.yml](https://github.com/Appdynamics/SampleApp/blob/master/docker-compose.yml) and save to local
+2. Fill in environment variables:
+     - **CONTROLLER_URL**  :  For example: xxx.saas.appdynamics.com
+     - **CONTROLLER_PORT** : 443 (SaaS controller), 8090 (or whichever port you set for on-prem controller)
+     - **CONTROLLER_ACCOUNT_NAME** : Get from License information
+     - **CONTROLLER_ACCESS_KEY**: Get from License information
+     - **PORTAL_USERNAME**: Your appdynamics.com account (required for downloading agents)
+     - **PORTAL_PASSWORD**: Your appdynamics.com password (required for downloading agents)
+     - **AGENT_VERSION**: Your 4 digit controller version, for example: 4.2.3.2.
+     - **APP_ID**: Not applicable if trying from GitHub source. Leave empty. (Note, some features are not availble with APP_ID left empty)
 
-1. Clone the project
-2. Navigate to project root folder, then build and run the containers in the background: `docker-compose up -d`
-3. Now your containers are started. Check your running containers by command: `docker ps`
-4. Add instrumentation with Java, DB and Machine agents and then start the REST service: `docker exec -it rest install-appdynamics <controller-url> <controller-port> <account-name> <access-key>; docker exec rest start-all`
-5. Instrument Node.js agent and start the web service: `docker exec -it web install-appdynamics <controller-url> <controller-port> <account-name> <access-key>; docker exec web start-all`
+> **Note**: If you want to build Docker images from source code, clone the project and uncomment line 7 and line 34 in docker-compose.yml.
 
-### Running from DockerHub
+### Deploy
 
-1. Copy [docker-compose.yml](https://github.com/Appdynamics/SampleApp/blob/master/docker-compose.yml) and add your AppDynamics Controller/Account information (and Appdynamics Portal credentials if you wish)
-2. Start the containers using `docker-compose up -d` (this will pull the container images from the AppDynamics public registry on DockerHub)
-3. Add instrumentation and start the REST service: `docker exec -it rest install-appdynamics; docker exec rest start-all`
-4. Add instrumentation and start the web service: `docker exec -it web install-appdynamics; docker exec web start-all`
+1. Start the application by running ```docker-compose up -d``` from docker-compose.yml directory. 
+2. Once you see "... Creating web", run this command to install AppDynamics agents:
+```docker exec -it rest install-appdynamics; docker exec rest start-all```
+3. Now your app is running (your default Docker host may not be 192.168.99.100):
+    * Java REST server: [192.168.99.100:8080/SampleApp/products](http://192.168.99.100:8080/SampleApp/products)
+    * Node.js web frontend: [192.168.99.100:3000](http://192.168.99.100:3000/#)
 
-### See App Running
-* Java app is running on [192.168.99.100:8080/SampleApp/products](http://192.168.99.100:8080/SampleApp/products)
-* Node.js web app is running on [192.168.99.100:3000](http://192.168.99.100:3000/#)
-
-Once your app is running,  you will see this:
+Open frontend in browser, you will see this:
 
 ![alt tag](https://github.com/Appdynamics/SampleApp/blob/master/web/src/public/img/sampleapp.png)
+### Clean up
+* Stop and remove all the running containers: ```docker-compose down```
+* Remove all the images: ``` docker rmi -f appdynamics/sample-app-rest appdynamics/sample-app-web mysql```
+* Delete docker-compose.yml
+* Your enviroment is clean now!
