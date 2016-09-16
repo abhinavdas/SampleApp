@@ -16,9 +16,12 @@ Docker based Sample Application with Java REST server, MySQL database and Node.j
 
 ### Deploy
 
-1. Start the application by running ```docker-compose up -d``` from docker-compose.yml directory. 
+1. Start the application from docker-compose.yml directory by running: 
+
+    ```docker-compose up -d``` 
 2. Once you see "... Creating web", run this command to install AppDynamics agents:
-```docker exec -it rest install-appdynamics; docker exec rest start-all```
+
+    ```docker exec -it rest install-appdynamics; docker exec rest start-all```
 3. Now your app is running (your default Docker host may not be 192.168.99.100):
     * Java REST server: [192.168.99.100:8080/SampleApp/products](http://192.168.99.100:8080/SampleApp/products)
     * Node.js web frontend: [192.168.99.100:3000](http://192.168.99.100:3000/#)
@@ -27,7 +30,11 @@ Open frontend in browser, you will see this:
 
 ![alt tag](https://github.com/Appdynamics/SampleApp/blob/master/web/src/public/img/sampleapp.png)
 ### Clean up
-* Stop and remove all the running containers: ```docker-compose down```
-* Remove all the images: ``` docker rmi -f appdynamics/sample-app-rest appdynamics/sample-app-web mysql```
+* Stop and remove all the running containers: 
+ 
+    ```docker-compose down```
+* Remove all the images: 
+
+    ``` docker rmi -f appdynamics/sample-app-rest appdynamics/sample-app-web mysql```
 * Delete docker-compose.yml
 * Your enviroment is clean now!
