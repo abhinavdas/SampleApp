@@ -12,6 +12,7 @@
             CONTROLLER_URL,
             CONTROLLER_PORT,
             CONTROLLER_SSL,
+            CONTROLLER_ACCOUNT_NAME,
             APP_ID) {
 
             $scope.ready = false;
@@ -49,7 +50,8 @@
                 }
 
                 var s = CONTROLLER_SSL == "true" ? "s" : "" ;
-                var url = "http" + s + "://" + CONTROLLER_URL + ":" + CONTROLLER_PORT + "/#/location=" + location + "&application=" + APP_ID;
+                //https://appdynamics-demo.saas.appdynamics.com/controller/?accountName=appdynamics-demo#/location=APP_BT_LIST&application=11543)
+                var url = "http" + s + "://" + CONTROLLER_URL + ":" + CONTROLLER_PORT + "/?accountName="+ CONTROLLER_ACCOUNT_NAME +"#/location=" + location + "&application=" + APP_ID;
                 window.open(url, "AppDynamicsController");
             };
         
