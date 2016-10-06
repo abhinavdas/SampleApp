@@ -18,7 +18,7 @@ checkEnv() {
     exit
   fi
   if [ -z ${APP_ID} ]; then
-    echo "Error: APP_ID must be set in docker-compose.yml"
+    echo "Warning: APP_ID is empty. You won't be able to access AppDynamics controller through SampleApp."
     exit
   fi
 }

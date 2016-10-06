@@ -5,7 +5,7 @@
         'businessTransactionService',
         'exceptionsController',
         'exceptionsService',
-        'slowResponseController',
+//      'slowResponseController',
         'constants']);
 
     app.config(function($routeProvider) {

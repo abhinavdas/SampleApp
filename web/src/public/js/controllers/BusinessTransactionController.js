@@ -24,8 +24,8 @@
         $scope.setDefaultProducts = function () {
             var products = ["oranges",
                 "apples",
-                "bananas",
-                "melons"];
+                "lemons",
+                "mangos"];
 
             var productCount = 100;
 
@@ -58,7 +58,7 @@
                 });
             };
 
-            $scope.selectedProduct["delete"] = function () {
+            $scope.selectedProduct.delete = function () {
                 BusinessTransactionService.delete(this.id).success(function () {
                     var lookup, results;
                     this.loading = false;
@@ -118,7 +118,7 @@
         $scope.reset = function () {
             for(var i = 0; i < this.products.length; i++){
                 this.products[i].stock = 100;
-                this.products[i].save();
+                this.products[i].save(false);
             }
         };
 

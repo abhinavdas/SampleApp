@@ -89,6 +89,10 @@ input[type=number] {
     padding: 24px;
 }
 
+.gray-text-box img {
+    max-width: 300px;
+    max-height: 300px;
+}
 
 /*table*/
 .products th {

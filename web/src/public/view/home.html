@@ -1,22 +1,32 @@
 <div>
 
     <div class="left">
-        <h4>About the AppDynamics Sample App</h4>
+        <h4>Getting Started with AppDynamics Sample App</h4>
 
         <div class="content">
-            <p>This simple single-page web application sends requests to a Node HTTP server, which connects to an Apache Tomcat backend server, which in turn connects to a MySQL database.</p>
+            <p>Welcome to the Sample App, a simple Fruit Stand inventory application. You'll use this app to go through some key AppDynamics concepts:</p>
 
-            <p>An <span class="keyword">AppDynamics agent</span> has been installed and is monitoring each tier. AppDynamics Agents send application data to the <span class="keyword">Controller</span>, which assembles, processes, and presents the data.</p>
+            <br>
 
-            <p> In about <b>two minutes</b> after loading this page, the agents will register and you should begin seeing some activity in the <span class="keyword">Controller UI</span>.
-            </p>
+            <p><b>1. Business Transactions</b></p> 
+            <p>Manage the inventory of a fruit vendor, and see how these end user operations are tracked as Business Transactions by AppDynamics.</p>
+
+            <p><b>2. Flow Map</b></p> 
+            <p>See how the sample app architecture maps to visual representations in the AppDynamics user interface.</p>
+
+            <p><b>3. Error Detection</b></p> 
+            <p>Generate different kinds of application errors, and learn how these errors are tracked by AppDynamics.</p>
+
+            <br>
+
+            <p><span class="keyword">AppDynamics Agents</span> that monitor this application have already been configured for this Sample Application. The agents will send performance data to your <span class="keyword">AppDynamics Controller</span>, which assembles, processes, and presents the data.</p>
         </div>
 
         <img style="margin-top: 36px;" src="img/infogrph_SampleApp.svg" />
 
         <br>
 
-        <button type="button" class="blue" style="margin-top: 50px; width:256px; height: 36px;" ng-click="navigateTo('fruitStand')">Start using the Sample App</button>
+        <button type="button" class="blue" style="margin-top: 50px; width:256px; height: 36px;" ng-click="navigateTo('fruitStand')">Next &#8594;</button>
     </div>
 
     <div class="right">
@@ -27,7 +37,9 @@
 
             <br>
 
-            <a ng-click="openController('Tiers')">View the list of monitored Sample App tiers</a>
+            <img style="margin-bottom: 20px;" src="img/screenshots/tiers.png" />
+
+            <button type="button" class="blue" style="height: 36px;" ng-click="openController('Tiers')">View the list of monitored Sample App tiers</button>
         </div>
 
     </div>

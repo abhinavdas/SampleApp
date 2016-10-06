@@ -1,14 +1,17 @@
 <div ng-controller="businessTransactionController" class="section">
     <div class="left">
-        <h4>Normal Business Transactions</h4>
+        <h4>Business Transactions</h4>
 
         <div class="content">
-            <p>
-                Click the buttons to reset the inventory, and to add or remove products. Observe what business transactions are created by agents and how the calls per minute and average response times are shown.
-            </p>
+            <p>The Sample App is a fruit stand inventory management system.</p>
+            
+            <p>There are four kinds of fruit currently available at the fruit stand. The stand is initially stocked with 100 apples, 100 oranges, 100 bananas, and 100 lemons. Let’s generate some load by using the Fruit Stand application.</p>
         </div>
 
+        <br>
+
         <table class="products">
+            <p style="font-size:16px"><b> Fruit Stand Inventory </b></p>
             <thead>
             <tr>
                 <th>
@@ -18,7 +21,7 @@
                     <p>Quantity</p>
                 </th>
                 <th>
-                    &nbsp;
+                    <p>Action</p>
                 </th>
             </tr>
             </thead>
@@ -31,17 +34,40 @@
                     <p style="margin-top: 9px;">{{product.stock}}</p>
                 </td>
                 <td>
-                    <button type="button" ng-click="product.save(false)" ng-disabled="product.loading" class="gray"> Add One
+                    <button type="button" ng-click="product.save(false)" ng-disabled="product.loading" class="gray"> Stock One
                     </button>
 
-                    <button type="button" ng-click="product.save(true)" ng-disabled="product.loading" class="gray"> Remove One
+                    <button type="button" ng-click="product.save(true)" ng-disabled="product.loading" class="gray"> Sell One
                     </button>
                 </td>
             </tr>
             </tbody>
         </table>
 
-        <button type="button" class="gray" style="margin-top: 23px; margin-bottom: 40px;" ng-click="reset()"></span> Reset Fruit Stand</button>
+        <!-- <button type="button" ng-click="add()" style="margin-top: 23px; margin-bottom: 40px;" class="gray"> Stock Bananas </button>
+
+        <button type="button" ng-click="product.delete()" style="margin-top: 23px; margin-bottom: 40px;" class="gray"> Remove Bananas </button>
+        -->
+        <button type="button" class="gray" style="margin-top: 23px; margin-bottom: 40px;" ng-click="reset()"></span> Restock </button>
+
+        <div class="content">
+        <p style="font-size:16px"><b>Try this: </b></p>
+        <p style="margin-left:20px">1. You’ve just sold 5 apples! Click “Sell One” 5 times.</p> 
+        <p style="margin-left:20px">2. It’s the end of the day and your suppliers are refreshing your inventory. Click “Restock” to reset your initial stock back to 100 apples, 100 oranges, 100 bananas, and 100 lemons.</p> 
+        <p style="margin-left:20px">3. Bananas have just come in season and you found a supplier. Click “Stock Bananas" to add them to your inventory list.</p> 
+        <p style="margin-left:20px">4. Your banana supplier is going out of business, so you won’t be selling them at the fruit stand. Click “Remove Bananas” to remove them from the inventory list. </p> 
+
+        <br>
+
+        <p>Each of these operations is automatically tracked by AppDynamics as a <span class="keyword">Business Transaction</span>. A Business Transaction represents the end-to-end processing path used to fulfill a service request 
+        in the monitored environment. The Agents monitoring the sample app have sent data to the AppDynamics
+        Controller, which automatically generates a list of business transactions based on the detected activity.</p> 
+
+        <p>In the Business Transaction List view, you can see all the Business Transactions discovered by AppDynamics,
+        and basic metrics like <span class="keyword">load (Calls/min)</span> and the <span class="keyword">average response time</span> it takes to execute. </p>
+
+        </p>
+        </div>
     </div>
 
     <div class="right">
@@ -51,9 +77,12 @@
             <p>A business transaction represents the end-to-end processing path used to fulfill a service request in the monitored environment.
             When you connect agents to a Controller, the Controller automatically generates a list of business transactions based on the activity that the agents detect.</p>
 
+            <p><b> Note: It make take up to 2 minutes for Business Transactions and metrics to update. </b></p>
+            
             <br>
-
-            <a ng-click="openController('Business Transaction List')">View Business Transaction List</a>
+            
+            <img style="margin-bottom: 20px;" src="img/screenshots/business_transactions.png" />
+            <button type="button" class="blue" style="height: 36px;" ng-click="openController('Business Transaction List')">View Business Transaction List</button>
         </div>
 
         <br>
@@ -65,7 +94,9 @@
 
             <br>
 
-            <a ng-click="openController('Flow Map')">View Flow Map</a>
+            <img style="margin-bottom: 20px;" src="img/screenshots/Flowmap.png" />
+
+            <button type="button" class="blue" style="height: 36px;" ng-click="openController('Flow Map')">View Flow Map</button>
         </div>
     </div>
 </div>

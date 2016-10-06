@@ -38,9 +38,9 @@
                     case "Flow Map":
                         location = "APP_DASHBOARD";
                         break;
-                    case "Slow Response Times":
-                        location = "APP_SLOW_RESPONSE_TIMES";
-                        break;
+                    // case "Slow Response Times":
+                    //     location = "APP_SLOW_RESPONSE_TIMES";
+                    //     break;
                     case "Exceptions":
                         location = "APP_ERRORS";
                         break;
@@ -50,7 +50,6 @@
                 }
 
                 var s = CONTROLLER_SSL == "true" ? "s" : "" ;
-                //https://appdynamics-demo.saas.appdynamics.com/controller/?accountName=appdynamics-demo#/location=APP_BT_LIST&application=11543)
                 var url = "http" + s + "://" + CONTROLLER_URL + ":" + CONTROLLER_PORT + "/?accountName="+ CONTROLLER_ACCOUNT_NAME +"#/location=" + location + "&application=" + APP_ID;
                 window.open(url, "AppDynamicsController");
             };

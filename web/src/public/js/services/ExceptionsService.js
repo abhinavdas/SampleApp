@@ -15,13 +15,13 @@
         };
 
         service.javaException = function () {
-            return $http.get('/exceptions/java', {
+            return $http.get('/java_error', {
                 method: 'GET'
             });
         };
 
         service.dbException = function () {
-            return $http.get('/exceptions/sql', {
+            return $http.get('/sql_error', {
                 method: 'GET'
             })
         };

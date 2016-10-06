@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 /**
  * Created by alanaanderson on 6/22/16.
  */
-@Path("/exceptions")
+@Path("/")
 public class RESTExceptions {
 
     @Inject
@@ -26,7 +26,7 @@ public class RESTExceptions {
     private Logger log;
 
     @GET
-    @Path("/java")
+    @Path("/java_error")
     public Response throwException() throws Exception {
         log.info("Throwing Exception...");
         try {
@@ -56,7 +56,7 @@ public class RESTExceptions {
     }
 
     @GET
-    @Path("/sql")
+    @Path("/sql_error")
     public Response throwSqlException() throws Exception {
         log.info("Throwing SQLException...");
         try {

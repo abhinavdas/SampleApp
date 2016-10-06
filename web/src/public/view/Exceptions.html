@@ -5,26 +5,30 @@
 
         <div class="content">
             <p>Click these buttons to simulate errors in the various components of the sample application, and observe how these are captures and presented.</p>
+            <p style="margin-left:20px">1. <b>Node Tier Error:</b> Frontend is calling a non-existing url in the backend.</p>
+            <p style="margin-left:20px">2. <b>Java Tier Exception:</b> An exception is thrown from Java Tier.</p>
+            <p style="margin-left:20px">3. <b>Database Exception:</b> Java Tier is making an invalid database call.</p>
         </div>
 
         <br>
 
         <button type="button" class="gray" ng-click="raiseNodeException()" ng-disabled="raisingNode">Create Node Tier Error<span ng-show="exceptionsNode > 0"> ({{getNodeExceptions()}})</span></button>
 
-        <button type="button" class="gray" ng-click="raiseJavaException()" ng-disabled="raisingJava">Create Java Tier Error<span ng-show="exceptionsJava > 0"> ({{getJavaExceptions()}})</span></button>
+        <button type="button" class="gray" ng-click="raiseJavaException()" ng-disabled="raisingJava">Create Java Tier Exception<span ng-show="exceptionsJava > 0"> ({{getJavaExceptions()}})</span></button>
 
-        <button type="button" class="gray" ng-click="raiseSqlException()" ng-disabled="raisingSql">Create Database Tier Error<span ng-show="exceptionsSql > 0"> ({{getSqlExceptions()}})</span></button>
+        <button type="button" class="gray" ng-click="raiseSqlException()" ng-disabled="raisingSql">Create Database Exception<span ng-show="exceptionsSql > 0"> ({{getSqlExceptions()}})</span></button>
     </div>
 
     <div class="right">
         <div class="gray-text-box">
             <h5> Errors and Exceptions</h5>
 
-            <p>AppDynamics captures and presents information on business transaction errors in the monitored environment.</p>
+            <p>AppDynamics captures and presents information on business transaction errors in the monitored environment. The page contains two tabs, one for transaction errors and one for Exceptions.</p>
 
             <br>
-
-            <a ng-click="openController('Exceptions')">View Errors and Exceptions</a>
+            <img style="margin-bottom: 10px;" src="img/screenshots/errors.png" />
+            <img style="margin-bottom: 20px;" src="img/screenshots/exceptions.png" />
+            <button type="button" class="blue" style="height: 36px;" ng-click="openController('Exceptions')">View Errors and Exceptions</button>
         </div>
     </div>
 
